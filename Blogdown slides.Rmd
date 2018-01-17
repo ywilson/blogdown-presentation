@@ -1,0 +1,143 @@
+---
+title: "Making Websites with Blogdown"
+author: "Yasmeen Wilson"
+date: "January 15, 2018"
+output: ioslides_presentation
+---
+
+# Preliminary tasks
+
+##
+- Set up github account at https://github.com
+- Download [Git](https://git-scm.com/) 
+
+
+# Setting up Github
+
+##
+
+Putting your site on github is mandatory for creating and deploying your website.
+
+- On Github.com, intialize a new repositry by pressing the "+" button in the top right corner, press New Repository, Name the Repository, then click **Initialize this repository with a README** << create Repository
+
+- Once created, go to the green **Clone or Download** button. Press the **Copy to Clipboard** button.
+
+- In R Stuido, go to File << New Project << Version Control << Git Repository. Paste your link into the **Repository URL** space, name your directory, then press **Create New Projet**.
+
+# Installing and Running Blogdown and Hugo
+
+##
+
+All code should be ran in the terminal unless noted otherwise
+
+- Install Blogdown
+```{r, eval = FALSE}
+devtools::install_github("rstudio/blogdown")
+```
+
+- Install Hugo
+```{r, eval=FALSE}
+blogdown::install_hugo()
+```
+
+
+## 
+
+- Create a new site 
+```{r,eval=FALSE}
+blogdown::new_site() #default theme = "lithium"
+```
+
+- Render the site in R Studio **DO NOT KNIT**
+```{r,eval=FALSE}
+blogdown::serve_site() 
+```
+
+**NOTE** This is just the standard default site used for tutorial purposes.
+
+##
+
+**Pushing to Github**
+
+Most work involving github is commiting and pushing your site. 
+
+In order to deploy your site and add updates to your deployed site, you must commit and push each time.
+
+After you build your site, go to the "Git" tab where your "Environment","History", and "Files" tabs are in R Studio.
+
+##
+- Press the **Commit** button
+A new window should open
+
+- In this new window, there is a text box on the right that has **commit message** on top. 
+- In this box, write any new changes that have been done to your code. If it is when you first created it,
+comment "initial commit".
+- Check the boxes next to all your files, then press the **commit** button at the bottom of the text box.
+- Press the green **push** button in the top right corner.
+
+**NOTE** You must both **commit** AND **push** for your site to be updated on github and where ever it is hosted.
+
+- Check github to make sure it is updated with what is currently in R Studio.
+
+
+# Deployment using Netlify
+
+##
+
+- Set up Netlify account at https://www.netlify.com/
+- Sign up with your github
+- Press **New Site from Git**
+
+In the following page
+
+- Press **Github**
+- Authorize Netlify to have access to your github then follow the steps to sign in to your github
+- Select the repo that your site is in.
+- On the following page, scroll down and where it says **Publish Directory** put "public".
+- press deploy site
+
+Your site should now be published
+
+##
+**NOTE** Remember to ALWAYS commit **AND** push when updating your site. This is how netlfiy updates your deployed site.
+
+# Customizing your site using Hugo
+
+##
+
+- Visit https://themes.gohugo.io/ in order to choose a theme for your site.
+- After choosing a theme, press the **download** button, this should take you to the creater's github.
+- Now, you can either add this additional code 
+```{r, eval=FALSE}
+install_theme("your_theme_here", theme_example = TRUE, update_config = TRUE)
+```
+- Or, go back to your original code and update it to this
+```{r, eval=FALSE}
+blogdown::new_site(theme = "your_theme_here", theme_example = TRUE)
+```
+
+##
+
+To add a theme, you put their github name/ hugo theme repo.
+You can just copy and paste it from their site as seen here.
+
+![](https://i.imgur.com/0gxwNsd.png)
+
+##
+To use this you set theme = "MunifTanjim/minimo"
+
+```{r, eval=FALSE}
+install_theme("MunifTanjim/minimo", theme_example = TRUE, update_config = TRUE)
+```
+OR
+```{r, eval=FALSE}
+blogdown::new_site(theme = "MunifTanjim/minimo", theme_example = TRUE)
+
+```
+
+
+
+
+
+
+
